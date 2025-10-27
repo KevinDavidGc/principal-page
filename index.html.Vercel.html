@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -192,39 +192,69 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1); /* Separador sutil */
         }
         #contacto h2 {
-            font-size: 2.5rem;
+            font-size: 2.25rem; /* Ligeramente reducido de 2.5rem */
+            line-height: 1.4; /* Añadido para mejor espaciado */
             font-weight: 800;
+            color: var(--color-secondary); /* Cambiado a color dorado */
+            margin-bottom: 0; /* Eliminado margen inferior, la tarjeta lo maneja */
+            text-align: center; /* Asegura el centrado del texto */
+        }
+        /* Se eliminaron los estilos .contacto-info y .contacto-item que ya no se usan */
+
+        /* ESTILOS PARA EL FORMULARIO DE CONTACTO */
+        .contact-form {
+            max-width: 600px;
+            margin: 30px auto 0 auto; /* Espacio superior y centrado */
+            text-align: left;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--color-light);
+        }
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.05); /* Fondo sutil */
+            border: 1px solid rgba(255, 255, 255, 0.2);
             color: var(--color-white);
-            margin-bottom: 30px;
+            font-family: var(--font-family);
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
-        .contacto-info {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px; /* Espacio entre teléfono y email */
-            max-width: 400px; /* Limita el ancho */
-            margin: 0 auto; /* Centra el contenedor */
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--color-secondary); /* Borde dorado al enfocar */
+            box-shadow: 0 0 10px rgba(255, 183, 3, 0.3); /* Sombra dorada */
         }
-        .contacto-item {
-            display: flex;
-            align-items: center;
-            gap: 15px; /* Espacio entre icono y texto */
-            font-size: 1.2rem;
-            color: var(--color-light);
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
         }
-        .contacto-item svg {
-            width: 28px; /* Tamaño de los iconos */
-            height: 28px;
-            fill: var(--color-secondary); /* Color dorado para iconos */
-        }
-        .contacto-item a {
-            color: var(--color-light);
+        .form-button {
+            display: block;
+            width: 100%;
+            background-color: var(--color-secondary);
+            color: var(--color-dark);
+            font-weight: bold;
+            padding: 15px 20px;
+            border-radius: 8px;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 1.1rem;
+            border: none;
         }
-        .contacto-item a:hover {
-            color: var(--color-secondary); /* Resalta el enlace al pasar el ratón */
+        .form-button:hover {
+            background-color: #ffc733; /* Amarillo más claro */
+            transform: scale(1.02);
         }
+
 
         /* ESTILOS PARA EL NUEVO BANNER FIJO INFERIOR */
         .sticky-banner-cta {
@@ -641,17 +671,39 @@
         </section>
 
         <!-- SECCIÓN DE CONTACTO --><section id="contacto">
-            <h2>Contacto</h2>
-            <div class="contacto-info">
-                <div class="contacto-item">
-                    <!-- Icono SVG Teléfono --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                    <a href="tel:+593984721487">+593 984 721 487</a>
-                </div>
-                <div class="contacto-item">
-                    <!-- Icono SVG Email --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                    <!-- CORREO ELECTRÓNICO CORREGIDO AQUÍ --><a href="mailto:mkvngrc@gmail.com">mkvngrc@gmail.com</a>
+            <!-- TÍTULO ENVUELTO EN LA TARJETA INTERACTIVA -->
+            <div class="max-w-4xl mx-auto mb-12"> <!-- Contenedor para centrar y dar margen inferior -->
+                <div class="interactive-card text-center"> <!-- Tarjeta con efecto hover -->
+                    <h2>PARA CREACIÓN DE CURSOS, PÁGINAS, ARCHIVOS EDITABLES, EXTENSIONES, JUEGOS Y APLICACIONES, ESCRÍBENOS</h2>
                 </div>
             </div>
+
+            <!-- Se eliminó el div .contacto-info que contenía el email -->
+            
+            <!-- NUEVO FORMULARIO DE CONTACTO -->
+            <form class="contact-form" action="https://getform.io/f/adrdwvpa" method="POST">
+                <div class="form-group">
+                    <label for="nombre" class="form-label">Nombre Completo</label>
+                    <input type="text" id="nombre" name="nombre" class="form-input" placeholder="Tu nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono" class="form-label">Teléfono</label>
+                    <input type="tel" id="telefono" name="telefono" class="form-input" placeholder="Tu número de teléfono">
+                </div>
+                <div class="form-group">
+                    <label for="correo" class="form-label">Correo Electrónico</label>
+                    <input type="email" id="correo" name="correo" class="form-input" placeholder="tu@correo.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje" class="form-label">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" class="form-textarea" placeholder="Escribe tu consulta aquí..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="form-button">Enviar Mensaje</button>
+                </div>
+            </form>
+            <!-- FIN DEL NUEVO FORMULARIO -->
+            
         </section>
 
 
@@ -869,4 +921,12 @@
     </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
 

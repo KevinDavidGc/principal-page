@@ -1,0 +1,511 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📂 Mi Portafolio Dinámico</title>
+    
+    <!-- Estilos CSS integrados para una apariencia moderna y responsiva -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* --- Carga de Archivos --- */
+        #upload-section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        #upload-form input[type="file"], #upload-form button {
+            padding: 10px;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        #upload-form button {
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+        
+        #upload-form button:active {
+            transform: translateY(1px);
+        }
+
+        #upload-form button:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Mensajes de estado */
+        #message {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .success {
+            background-color: #e6ffe6;
+            color: #27ae60;
+            border: 1px solid #2ecc71;
+        }
+
+        .error {
+            background-color: #ffe6e6;
+            color: #c0392b;
+            border: 1px solid #e74c3c;
+        }
+        
+        .warning {
+            background-color: #fffbe6;
+            color: #8a6d3b;
+            border: 1px solid #f1c40f;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* --- Lista de Documentos --- */
+        #document-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        #document-list li {
+            padding: 12px;
+            margin-bottom: 8px;
+            background-color: #ecf0f1;
+            border-left: 5px solid #3498db;
+            cursor: pointer;
+            transition: background-color 0.2s, box-shadow 0.2s;
+            border-radius: 4px;
+        }
+
+        #document-list li:hover {
+            background-color: #bdc3c7;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .placeholder {
+            font-style: italic;
+            color: #7f8c8d;
+            border-left: 5px solid #95a5a6 !important;
+            cursor: default !important;
+        }
+
+        /* --- Visor de Documentos --- */
+        #document-viewer {
+            margin-top: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #content-iframe {
+            width: 100%;
+            /* Buen alto para la visualización */
+            height: 600px; 
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        
+        /* --- Estilos de Pie de Página (Footer) --- */
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            background-color: #34495e; 
+            color: #ecf0f1;
+            font-size: 0.85em;
+        }
+
+        #user-info {
+            padding: 10px;
+            background-color: #f1c40f;
+            color: #333;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        /* Media Queries para Responsividad */
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px 10px;
+                padding: 0;
+            }
+
+            #upload-form input[type="file"] {
+                display: block;
+                width: 100%;
+                margin-bottom: 10px;
+                box-sizing: border-box;
+            }
+
+            #upload-form button {
+                width: 100%;
+                margin-right: 0;
+            }
+
+            #content-iframe {
+                height: 400px; /* Reducir altura en móvil */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Título actualizado según la solicitud -->
+        <h1>MI PORTAFOLIO WEB (KEVIN DAVID GARCÍA)</h1>
+        <p>Carga, guarda y comparte tus documentos HTML.</p>
+    </header>
+
+    <div class="container">
+        <!-- Información del Usuario/ID para compartición -->
+        <div id="user-info">Intentando conectar con la nube...</div>
+
+        <!-- SECCIÓN DE CARGA DE ARCHIVOS -->
+        <section id="upload-section">
+            <h2>Sube tu Documento (.html)</h2>
+            <form id="upload-form" enctype="multipart/form-data">
+                <!-- Solo acepta archivos HTML -->
+                <input type="file" id="doc-file" name="docFile" accept=".html" required>
+                <button type="submit" id="upload-button">Cargar Documento</button>
+            </form>
+            <p id="message" class="hidden"></p>
+        </section>
+
+        <hr style="border: 0; height: 1px; background: #ddd; margin: 30px 0;">
+
+        <!-- SECCIÓN DE VISOR Y LISTA -->
+        <section id="viewer-section">
+            <h2>Mis Documentos Guardados</h2>
+            <p style="font-size: 0.9em; color: #555;">(Haz clic en un elemento de la lista para cargarlo en el visor.)</p>
+            <ul id="document-list">
+                <!-- Los documentos cargados se añadirán aquí con JavaScript -->
+                <li class="placeholder">Cargando documentos...</li>
+            </ul>
+
+            <div id="document-viewer">
+                <h3>Visor de Contenido</h3>
+                <!-- El iframe mostrará el contenido del documento seleccionado -->
+                <iframe id="content-iframe" src="about:blank" frameborder="0" title="Visor de Documentos HTML"></iframe>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Pie de página añadido según la solicitud -->
+    <footer>
+        <p>&copy; Todos los derechos reservados por Kevin Garcia 2025</p>
+    </footer>
+
+    <!-- Lógica JavaScript integrada con Firebase -->
+    <script type="module">
+        // --- IMPORTS DE FIREBASE (Modo Nube) ---
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, addDoc, onSnapshot, collection, query, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Establecer nivel de log para depuración de Firebase
+        setLogLevel('debug');
+        
+        // --- CONFIGURACIÓN GLOBAL ---
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+        let db, auth, userId = null;
+        let useLocalStorage = false; // Flag para modo de respaldo local
+        const LOCAL_STORAGE_KEY = 'myPortfolioDocs';
+
+        // --- REFERENCIAS AL DOM ---
+        const uploadForm = document.getElementById('upload-form');
+        const uploadButton = document.getElementById('upload-button');
+        const documentList = document.getElementById('document-list');
+        const contentIframe = document.getElementById('content-iframe');
+        const message = document.getElementById('message');
+        const userInfo = document.getElementById('user-info');
+        
+        // --- UTILIDADES ---
+
+        function showMessage(msg, type) {
+            message.textContent = msg;
+            message.className = type; // Asigna 'success', 'error', o 'warning'
+            message.classList.remove('hidden');
+            setTimeout(() => message.classList.add('hidden'), 5000);
+        }
+
+        // --- LÓGICA DE FIREBASE (NUBE) ---
+
+        function getDocumentsCollectionRef(uid) {
+            return collection(db, 'artifacts', appId, 'users', uid, 'documents');
+        }
+
+        async function initializeFirebase() {
+            try {
+                if (Object.keys(firebaseConfig).length === 0 || !firebaseConfig.apiKey) {
+                    throw new Error("Configuración de Firebase ausente o inválida.");
+                }
+
+                userInfo.textContent = "Configuración de Firebase cargada. Iniciando App...";
+                const app = initializeApp(firebaseConfig);
+                auth = getAuth(app);
+                db = getFirestore(app);
+
+                userInfo.textContent = "Autenticando...";
+                
+                if (initialAuthToken) {
+                    await signInWithCustomToken(auth, initialAuthToken);
+                } else {
+                    await signInAnonymously(auth);
+                }
+
+                onAuthStateChanged(auth, (user) => {
+                    if (user) {
+                        userId = user.uid;
+                        userInfo.innerHTML = `<strong>Modo Nube (Online) | ID de Usuario:</strong> ${userId}`;
+                        useLocalStorage = false;
+                        setupRealtimeListener(userId);
+                    } else {
+                        throw new Error("Autenticación fallida.");
+                    }
+                });
+
+            } catch (error) {
+                console.error("Error al inicializar Firebase:", error);
+                // Si falla Firebase, activamos el modo de respaldo (LocalStorage)
+                activateLocalStorageMode(error.message);
+            }
+        }
+        
+        function setupRealtimeListener(uid) {
+            const documentsRef = getDocumentsCollectionRef(uid);
+            const q = query(documentsRef);
+
+            onSnapshot(q, (snapshot) => {
+                const documents = [];
+                snapshot.forEach(doc => {
+                    documents.push({
+                        id: doc.id,
+                        ...doc.data()
+                    });
+                });
+                renderDocumentList(documents);
+                // Cargar el primer documento si el visor está vacío
+                if (documents.length > 0 && contentIframe.src === "about:blank") {
+                    loadDocument(documents[0]);
+                }
+            }, (error) => {
+                console.error("Error al escuchar cambios en Firestore:", error);
+                showMessage("Error de sincronización. Cambiando a modo local.", 'error');
+                activateLocalStorageMode(error.message);
+            });
+        }
+        
+        // --- LÓGICA DE RESPALDO (LOCALSTORAGE) ---
+
+        function activateLocalStorageMode(errorReason) {
+            useLocalStorage = true;
+            userId = 'localUser'; // ID Ficticio para modo local
+            
+            const warningMsg = `Error de conexión a la nube (${errorReason}). Se activó el MODO LOCAL.`;
+            showMessage(warningMsg, 'warning');
+            
+            userInfo.innerHTML = `<strong>Modo Local (Offline)</strong> - Los archivos se guardarán solo en este navegador.`;
+            
+            // Cargar documentos desde LocalStorage
+            loadLocalStorageDocs();
+        }
+
+        function getLocalStorageDocs() {
+            try {
+                const docs = localStorage.getItem(LOCAL_STORAGE_KEY);
+                return docs ? JSON.parse(docs) : [];
+            } catch (e) {
+                console.error("Error al leer LocalStorage:", e);
+                return [];
+            }
+        }
+
+        function saveLocalStorageDocs(docs) {
+            try {
+                localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(docs));
+            } catch (e) {
+                console.error("Error al guardar en LocalStorage:", e);
+                showMessage("Error al guardar localmente (¿almacenamiento lleno?).", 'error');
+            }
+        }
+
+        function loadLocalStorageDocs() {
+            const documents = getLocalStorageDocs();
+            renderDocumentList(documents);
+            if (documents.length > 0 && contentIframe.src === "about:blank") {
+                loadDocument(documents[0]);
+            }
+        }
+
+        // --- LÓGICA COMÚN (Renderizado y Carga) ---
+        
+        function renderDocumentList(documents) {
+            documentList.innerHTML = ''; // Limpiar la lista
+            
+            if (documents.length === 0) {
+                documentList.innerHTML = '<li class="placeholder">Aún no hay documentos guardados.</li>';
+                return;
+            }
+
+            documents.forEach(doc => {
+                const listItem = document.createElement('li');
+                let dateStr = 'Fecha desconocida';
+                
+                // Diferenciar formato de fecha (Firebase vs LocalStorage)
+                if (doc.createdAt && doc.createdAt.seconds) { // Firebase Timestamp
+                    dateStr = new Date(doc.createdAt.seconds * 1000).toLocaleDateString();
+                } else if (doc.createdAt) { // LocalStorage ISO String
+                    dateStr = new Date(doc.createdAt).toLocaleDateString();
+                }
+
+                listItem.textContent = `${doc.name} (${dateStr})`;
+                listItem.dataset.id = doc.id; // ID de Firebase o ID local (timestamp)
+
+                listItem.addEventListener('click', () => {
+                    loadDocument(doc);
+                });
+
+                documentList.appendChild(listItem);
+            });
+        }
+        
+        function loadDocument(doc) {
+            const htmlContent = doc.content || "<h1>Error: Contenido no encontrado.</h1>";
+            const dataUrl = 'data:text/html;charset=utf-8,' + encodeURIComponent(htmlContent);
+
+            contentIframe.src = dataUrl;
+            document.querySelector('#document-viewer h3').textContent = `Visor: ${doc.name}`;
+            contentIframe.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // --- MANEJO DEL ENVÍO DEL FORMULARIO ---
+        
+        async function handleUpload(e) {
+            e.preventDefault();
+            
+            if (!userId) {
+                showMessage("La aplicación aún se está inicializando. Intenta de nuevo.", 'error');
+                return;
+            }
+
+            const fileInput = document.getElementById('doc-file');
+            const file = fileInput.files[0];
+            
+            if (!file) {
+                showMessage("Por favor, selecciona un archivo HTML.", 'error');
+                return;
+            }
+
+            uploadButton.disabled = true;
+            showMessage(`Subiendo ${file.name}...`, 'success');
+
+            const reader = new FileReader();
+            reader.onload = async function(event) {
+                const htmlContent = event.target.result; 
+
+                try {
+                    if (useLocalStorage) {
+                        // --- GUARDAR EN MODO LOCAL ---
+                        const newDoc = {
+                            id: Date.now().toString(), // ID simple para modo local
+                            name: file.name,
+                            content: htmlContent,
+                            createdAt: new Date().toISOString() // Fecha estándar ISO
+                        };
+                        const docs = getLocalStorageDocs();
+                        docs.push(newDoc);
+                        saveLocalStorageDocs(docs);
+                        renderDocumentList(docs); // Actualizar UI
+                        
+                        showMessage(`Documento '${file.name}' guardado en modo LOCAL.`, 'success');
+
+                    } else {
+                        // --- GUARDAR EN MODO NUBE (FIREBASE) ---
+                        const newDoc = { 
+                            name: file.name, 
+                            content: htmlContent,
+                            createdAt: serverTimestamp(), // Fecha de Firebase
+                            userId: userId
+                        };
+                        const documentsRef = getDocumentsCollectionRef(userId);
+                        await addDoc(documentsRef, newDoc);
+                        
+                        // onSnapshot actualizará la UI automáticamente
+                        showMessage(`Documento '${file.name}' guardado en la NUBE con éxito!`, 'success');
+                    }
+                    
+                    fileInput.value = ''; // Limpiar el input
+
+                } catch (error) {
+                    console.error("Error al guardar el documento:", error);
+                    showMessage("Error al guardar el documento. Revisa la consola.", 'error');
+                } finally {
+                    uploadButton.disabled = false;
+                }
+            };
+            
+            reader.onerror = function() {
+                showMessage("Error al leer el archivo localmente.", 'error');
+                uploadButton.disabled = false;
+            };
+
+            reader.readAsText(file);
+        }
+
+        // --- INICIALIZACIÓN ---
+        // Intentar conectar a Firebase, si falla, usará LocalStorage como respaldo.
+        initializeFirebase();
+        // Habilitar el formulario (se bloqueará si userId no está listo)
+        uploadForm.addEventListener('submit', handleUpload);
+
+    </script>
+</body>
+</html><!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>

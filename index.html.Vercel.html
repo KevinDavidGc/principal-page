@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Domina la Inteligencia Artificial: Curso Definitivo</title>
     
-    <!-- Incluye Tailwind CSS CDN para estilos eficientes --><script src="https://cdn.tailwindcss.com"></script>
-    <!-- Fuente Poppins --><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
         /* Variables y base para el tema oscuro de universo */
         :root {
@@ -130,33 +130,6 @@
             font-weight: 700;
         }
 
-        /* Estilos para el botón flotante de WhatsApp */
-        .boton-flotante-whatsapp {
-          position: fixed;
-          bottom: 20px;
-          right: 20px;
-          z-index: 1000;
-          background-color: #25d366;
-          color: #ffffff;
-          width: 60px;
-          height: 60px;
-          border-radius: 50%;
-          text-decoration: none;
-          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: all 0.3s ease;
-        }
-        .boton-flotante-whatsapp:hover {
-          background-color: #1ebe57;
-          transform: scale(1.1);
-          box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-        }
-        .boton-flotante-whatsapp svg {
-          fill: #ffffff;
-        }
-
         /* Estilos para la sección final de llamada a la acción */
         .final-cta-section {
             padding: 60px 20px;
@@ -189,7 +162,6 @@
             margin-bottom: 0; /* Eliminado margen inferior, la tarjeta lo maneja */
             text-align: center; /* Asegura el centrado del texto */
         }
-        /* Se eliminaron los estilos .contacto-info y .contacto-item que ya no se usan */
 
         /* ESTILOS PARA EL FORMULARIO DE CONTACTO */
         .contact-form {
@@ -260,7 +232,7 @@
             z-index: 999; /* Debajo del botón de WhatsApp */
             box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
             text-align: center;
-            padding-right: 80px; /* Espacio para el botón de WhatsApp a la derecha */
+            padding-right: 20px; /* Reducido al quitar el botón flotante */
         }
         .sticky-banner-cta p {
             color: var(--color-light);
@@ -284,21 +256,21 @@
         }
         /* Ajuste responsivo para el banner */
          @media (max-width: 768px) {
-             .sticky-banner-cta {
-                 flex-direction: column;
-                 padding: 10px;
-                 padding-right: 10px; /* Reinicia el padding-right para móvil */
-             }
-             .sticky-banner-cta p {
-                  margin: 0 0 10px 0; /* Espacio debajo del texto en móvil */
-                  font-size: 1rem;
-             }
-             .sticky-banner-cta .cta-button {
-                  width: 80%; /* Hacer el botón más ancho en móvil */
-                  padding: 12px 20px;
-                  font-size: 1rem;
-             }
-         }
+            .sticky-banner-cta {
+                flex-direction: column;
+                padding: 10px;
+                padding-right: 10px; /* Reinicia el padding-right para móvil */
+            }
+            .sticky-banner-cta p {
+                 margin: 0 0 10px 0; /* Espacio debajo del texto en móvil */
+                 font-size: 1rem;
+            }
+            .sticky-banner-cta .cta-button {
+                 width: 80%; /* Hacer el botón más ancho en móvil */
+                 padding: 12px 20px;
+                 font-size: 1rem;
+            }
+        }
 
         /* ESTILOS PARA EL FOOTER */
         footer {
@@ -310,13 +282,11 @@
             font-size: 0.9rem; /* Tamaño de fuente pequeño */
             border-top: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria sutil */
         }
-
-
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- HERO SECTION --><header class="hero min-h-screen flex items-center justify-center p-8">
+    <header class="hero min-h-screen flex items-center justify-center p-8">
         <div class="max-w-4xl mx-auto text-center">
 
             <h1 class="text-4xl sm:text-6xl font-extrabold mb-4 leading-tight">
@@ -327,18 +297,24 @@
                 Aprende a usar diversas herramientas de IA, mejora ventas, automatiza tareas, y domina la generación de videos, imágenes y mucho más en menos tiempo.
             </p>
 
-            <div class="space-y-4 mb-8">
-                <!-- ENLACE PRINCIPAL CTA ACTUALIZADO -->
-                <a href="https://shopworldkvn.myshopify.com/collections/all" class="cta-button bg-yellow-400 text-gray-900 font-bold py-4 px-10 rounded-xl shadow-lg hover:bg-yellow-300 transition duration-300 transform hover:scale-105 inline-block text-xl">
-                    ¡Quiero Mi Acceso Ahora! 🚀
-                </a>
-
-                <!-- PRECIO Y CUENTA REGRESIVA --><div class="price-container">
-                    <span class="old-price">$17.99</span>
-                    <span class="new-price">$5.49</span>
+            <div class="mb-8">
+                <!-- Contenedor de Botones (Acceso + WhatsApp) -->
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-4">
+                    <a href="https://go.hotmart.com/E102814401R?dp=1" target="_blank" class="bg-yellow-400 text-gray-900 font-bold py-4 px-8 rounded-xl shadow-lg hover:bg-yellow-300 transition duration-300 transform hover:scale-105 inline-block text-xl w-full sm:w-auto">
+                        ¡Conseguir Ahora! 🚀
+                    </a>
+                    <a href="https://wa.me/593995496359?text=Hola,%20quiero%20comprar%20el%20curso%20de%20IA" target="_blank" class="bg-[#25d366] text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:bg-[#1ebe57] transition duration-300 transform hover:scale-105 inline-flex items-center justify-center gap-2 text-xl w-full sm:w-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M19.03 4.97C17.15 3.09 14.68 2 12 2C6.48 2 2 6.48 2 12c0 1.77.46 3.44 1.28 4.93L2 22l5.07-1.28C8.56 21.54 10.23 22 12 22c5.52 0 10-4.48 10-10c0-2.68-1.09-5.15-2.97-6.03zM12 20c-1.5 0-2.91-.41-4.14-1.13l-.29-.17l-3.08.78l.79-3.02l-.19-.3C4.41 14.91 4 13.5 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8zm5.17-5.57c-.18-.09-.96-.47-1.11-.53c-.15-.05-.26-.08-.37.08c-.11.16-.42.53-.51.63c-.1.11-.19.12-.37.04c-.18-.09-.76-.28-1.45-.89c-.54-.47-.9-.95-1-1.1c-.1-.16-.01-.24.07-.32c.08-.08.18-.21.27-.31c.09-.1.12-.16.18-.27c.06-.11.03-.2-.01-.28c-.04-.08-.37-.89-.51-1.22c-.14-.33-.28-.28-.39-.29c-.1-.01-.21-.01-.32-.01c-.11 0-.29.04-.44.2c-.16.16-.6.58-.6 1.41c0 .83.61 1.63.7 1.75c.09.11 1.2 1.83 2.91 2.56c.41.17.73.28.98.36c.4.12.76.1.1.06c.38-.04 1.14-.46 1.3-.91c.16-.44.16-.81.11-.89c-.05-.08-.16-.12-.34-.21z"/></svg>
+                        Compra por WhatsApp
+                    </a>
                 </div>
 
-                <div class="text-lg font-semibold text-yellow-400">
+                <div class="price-container">
+                    <span class="old-price">$19.99</span>
+                    <span class="new-price">$6.24</span> 
+                </div>
+
+                <div class="text-lg font-semibold text-yellow-400 mt-2">
                     Oferta termina en: <span id="timer" class="tracking-widest">04h 59m 59s</span>
                 </div>
             </div>
@@ -350,96 +326,84 @@
     </header>
 
     <main>
-        <!-- 12 RAZONES FUNDAMENTALES PARA ESTUDIAR IA --><section id="razones" class="py-20 px-4">
+        <section id="razones" class="py-20 px-4">
             <div class="max-w-6xl mx-auto text-center">
                 <h2 class="text-4xl font-extrabold mb-4 text-white">12 Razones Fundamentales para Estudiar Inteligencia Artificial</h2>
                 <p class="text-xl text-gray-400 mb-12">El futuro de tu carrera empieza aquí.</p>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-
+                    <!-- Se mantienen las 12 razones sin cambios -->
                     <div class="reason-item p-6 rounded-xl bg-gray-800 shadow-xl border border-gray-700 hover:border-yellow-400 transition duration-300">
                         <span class="reason-icon mb-4 block">📈</span>
                         <h3 class="text-lg font-bold text-yellow-400 mb-2">1. Alta Demanda Laboral</h3>
                         <p class="text-gray-400 text-sm">Los expertos en IA son los más buscados y mejor pagados del mercado global.</p>
                     </div>
-
                     <div class="reason-item p-6 rounded-xl bg-gray-800 shadow-xl border border-gray-700 hover:border-yellow-400 transition duration-300">
                         <span class="reason-icon mb-4 block">💡</span>
                         <h3 class="text-lg font-bold text-yellow-400 mb-2">2. Innovación en Múltiples Industrias</h3>
                         <p class="text-gray-400 text-sm">Sé pionero en transformar sectores como salud, finanzas y marketing.</p>
                     </div>
-
                     <div class="reason-item p-6 rounded-xl bg-gray-800 shadow-xl border border-gray-700 hover:border-yellow-400 transition duration-300">
                         <span class="reason-icon mb-4 block">💰</span>
                         <h3 class="text-lg font-bold text-yellow-400 mb-2">3. Potencial de Ingresos Elevados</h3>
                         <p class="text-gray-400 text-sm">Accede a salarios premium reservados solo para especialistas en tecnología de punta.</p>
                     </div>
-
                     <div class="reason-item p-6 rounded-xl bg-gray-800 shadow-xl border border-gray-700 hover:border-yellow-400 transition duration-300">
                         <span class="reason-icon mb-4 block">🌍</span>
                         <h3 class="text-lg font-bold text-yellow-400 mb-2">4. Impacto Social Positivo</h3>
                         <p class="text-gray-400 text-sm">Contribuye a soluciones para el cambio climático, investigación médica y educación.</p>
                     </div>
-
                     <div class="reason-item p-6 rounded-xl bg-gray-800 shadow-xl border border-gray-700 hover:border-yellow-400 transition duration-300">
                         <span class="reason-icon mb-4 block">🧠</span>
                         <h3 class="text-lg font-bold text-yellow-400 mb-2">5. Desafíos Intelectuales Constantes</h3>
                         <p class="text-gray-400 text-sm">Mantén tu mente activa resolviendo problemas complejos e innovadores.</p>
                     </div>
-
                     <div class="reason-item p-6 rounded-xl bg-gray-800 shadow-xl border border-gray-700 hover:border-yellow-400 transition duration-300">
                         <span class="reason-icon mb-4 block">🎨</span>
                         <h3 class="text-lg font-bold text-yellow-400 mb-2">6. Oportunidades para la Creatividad</h3>
                         <p class="text-gray-400 text-sm">Crea nuevas herramientas y productos que no existían antes en el mercado.</p>
                     </div>
-
                     <div class="reason-item p-6 rounded-xl bg-gray-800 shadow-xl border border-gray-700 hover:border-yellow-400 transition duration-300">
                         <span class="reason-icon mb-4 block">🚀</span>
                         <h3 class="text-lg font-bold text-yellow-400 mb-2">7. Contribución al Futuro Tech</h3>
                         <p class="text-gray-400 text-sm">Estarás en la vanguardia de la próxima gran revolución tecnológica mundial.</p>
                     </div>
-
-                    <!-- RAZONES FUNDAMENTALES AÑADIDAS --><div class="reason-item p-6 rounded-xl bg-gray-800 shadow-xl border border-gray-700 hover:border-yellow-400 transition duration-300">
+                    <div class="reason-item p-6 rounded-xl bg-gray-800 shadow-xl border border-gray-700 hover:border-yellow-400 transition duration-300">
                         <span class="reason-icon mb-4 block">⏱️</span>
                         <h3 class="text-lg font-bold text-yellow-400 mb-2">8. Automatización de Tareas</h3>
                         <p class="text-gray-400 text-sm">Libera hasta el 80% de tu tiempo laboral eliminando tareas repetitivas y tediosas.</p>
                     </div>
-
                     <div class="reason-item p-6 rounded-xl bg-gray-800 shadow-xl border border-gray-700 hover:border-yellow-400 transition duration-300">
                         <span class="reason-icon mb-4 block">🎯</span>
                         <h3 class="text-lg font-bold text-yellow-400 mb-2">9. Mejora en la Toma de Decisiones</h3>
                         <p class="text-gray-400 text-sm">Utiliza modelos predictivos para tomar decisiones basadas en datos y minimizar riesgos.</p>
                     </div>
-
                     <div class="reason-item p-6 rounded-xl bg-gray-800 shadow-xl border border-gray-700 hover:border-yellow-400 transition duration-300">
                         <span class="reason-icon mb-4 block">🛡️</span>
                         <h3 class="text-lg font-bold text-yellow-400 mb-2">10. Adaptabilidad Profesional</h3>
                         <p class="text-gray-400 text-sm">Asegura tu relevancia en un mercado laboral en constante cambio y evolución tecnológica.</p>
                     </div>
-
                     <div class="reason-item p-6 rounded-xl bg-gray-800 shadow-xl border border-gray-700 hover:border-yellow-400 transition duration-300">
                         <span class="reason-icon mb-4 block">🏗️</span>
                         <h3 class="text-lg font-bold text-yellow-400 mb-2">11. Creación de Nuevos Negocios</h3>
                         <p class="text-gray-400 text-sm">Identifica nichos de mercado y lanza productos o servicios impulsados por IA.</p>
                     </div>
-
                     <div class="reason-item p-6 rounded-xl bg-gray-800 shadow-xl border border-gray-700 hover:border-yellow-400 transition duration-300">
                         <span class="reason-icon mb-4 block">🌐</span>
                         <h3 class="text-lg font-bold text-yellow-400 mb-2">12. Comprensión del Mundo Moderno</h3>
                         <p class="text-gray-400 text-sm">Adquiere la alfabetización tecnológica necesaria para navegar la próxima década.</p>
                     </div>
-
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN DE MÓDULOS (CUADRÍCULA INTERACTIVA) --><section id="modulos" class="py-20 px-4 bg-gray-900 border-t border-b border-gray-700">
+        <section id="modulos" class="py-20 px-4 bg-gray-900 border-t border-b border-gray-700">
             <div class="max-w-7xl mx-auto">
                 <h2 class="text-4xl font-extrabold mb-4 text-white text-center">Programa Detallado: Acceso a 18+ Módulos Exclusivos</h2>
                 <p class="text-xl text-gray-400 mb-12 text-center">Conviértete en un arquitecto de la IA con este plan de estudios completo.</p>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
+                    <!-- Se mantienen los módulos sin cambios -->
                     <div class="module-card-interactive p-6 rounded-lg border border-gray-700 flex items-start space-x-4">
                         <span class="text-2xl text-yellow-400 mt-1">📚</span>
                         <div>
@@ -447,7 +411,6 @@
                             <p class="text-gray-400 text-sm">La base teórica para entender el ecosistema IA.</p>
                         </div>
                     </div>
-
                     <div class="module-card-interactive p-6 rounded-lg border border-gray-700 flex items-start space-x-4">
                         <span class="text-2xl text-yellow-400 mt-1">🎙️</span>
                         <div>
@@ -455,7 +418,6 @@
                             <p class="text-gray-400 text-sm">Genera narraciones y voces sintéticas de alta calidad.</p>
                         </div>
                     </div>
-
                     <div class="module-card-interactive p-6 rounded-lg border border-gray-700 flex items-start space-x-4">
                         <span class="text-2xl text-yellow-400 mt-1">🖼️</span>
                         <div>
@@ -463,7 +425,6 @@
                             <p class="text-gray-400 text-sm">Domina la generación de imágenes con IA Generativa.</p>
                         </div>
                     </div>
-
                     <div class="module-card-interactive p-6 rounded-lg border border-gray-700 flex items-start space-x-4">
                         <span class="text-2xl text-yellow-400 mt-1">🤖</span>
                         <div>
@@ -471,7 +432,6 @@
                             <p class="text-gray-400 text-sm">Construye entidades de IA autónomas para tareas complejas.</p>
                         </div>
                     </div>
-
                     <div class="module-card-interactive p-6 rounded-lg border border-gray-700 flex items-start space-x-4">
                         <span class="text-2xl text-yellow-400 mt-1">💼</span>
                         <div>
@@ -479,7 +439,6 @@
                             <p class="text-gray-400 text-sm">Utiliza la IA para análisis de mercado y proyecciones financieras.</p>
                         </div>
                     </div>
-
                     <div class="module-card-interactive p-6 rounded-lg border border-gray-700 flex items-start space-x-4">
                         <span class="text-2xl text-yellow-400 mt-1">📊</span>
                         <div>
@@ -487,7 +446,6 @@
                             <p class="text-gray-400 text-sm">Aprende a interpretar y gestionar grandes volúmenes de datos.</p>
                         </div>
                     </div>
-
                     <div class="module-card-interactive p-6 rounded-lg border border-gray-700 flex items-start space-x-4">
                         <span class="text-2xl text-yellow-400 mt-1">💬</span>
                         <div>
@@ -495,7 +453,6 @@
                             <p class="text-gray-400 text-sm">Diseña e implementa chatbots conversacionales eficientes.</p>
                         </div>
                     </div>
-
                     <div class="module-card-interactive p-6 rounded-lg border border-gray-700 flex items-start space-x-4">
                         <span class="text-2xl text-yellow-400 mt-1">✍️</span>
                         <div>
@@ -503,7 +460,6 @@
                             <p class="text-gray-400 text-sm">Genera textos persuasivos y estructuras narrativas virales.</p>
                         </div>
                     </div>
-
                     <div class="module-card-interactive p-6 rounded-lg border border-gray-700 flex items-start space-x-4">
                         <span class="text-2xl text-yellow-400 mt-1">🎬</span>
                         <div>
@@ -511,7 +467,6 @@
                             <p class="text-gray-400 text-sm">Automatiza la producción y post-producción de contenido audiovisual.</p>
                         </div>
                     </div>
-
                     <div class="module-card-interactive p-6 rounded-lg border border-gray-700 flex items-start space-x-4">
                         <span class="text-2xl text-yellow-400 mt-1">🛠️</span>
                         <div>
@@ -519,7 +474,6 @@
                             <p class="text-gray-400 text-sm">Aprovecha el poder de la IA sin necesidad de programar.</p>
                         </div>
                     </div>
-
                     <div class="module-card-interactive p-6 rounded-lg border border-gray-700 flex items-start space-x-4">
                         <span class="text-2xl text-yellow-400 mt-1">🆕</span>
                         <div>
@@ -527,7 +481,6 @@
                             <p class="text-gray-400 text-sm">Especialízate en la creación de contenido original y único.</p>
                         </div>
                     </div>
-
                     <div class="module-card-interactive p-6 rounded-lg border border-gray-700 flex items-start space-x-4">
                         <span class="text-2xl text-yellow-400 mt-1">🏭</span>
                         <div>
@@ -535,7 +488,6 @@
                             <p class="text-gray-400 text-sm">Aplica IA para maximizar la eficiencia operativa.</p>
                         </div>
                     </div>
-
                     <div class="module-card-interactive p-6 rounded-lg border border-gray-700 flex items-start space-x-4">
                         <span class="text-2xl text-yellow-400 mt-1">💳</span>
                         <div>
@@ -543,7 +495,6 @@
                             <p class="text-gray-400 text-sm">Análisis de riesgos, fraude y predicción de mercados financieros.</p>
                         </div>
                     </div>
-
                     <div class="module-card-interactive p-6 rounded-lg border border-gray-700 flex items-start space-x-4">
                         <span class="text-2xl text-yellow-400 mt-1">📣</span>
                         <div>
@@ -551,7 +502,6 @@
                             <p class="text-gray-400 text-sm">Automatización de campañas, segmentación y personalización a escala.</p>
                         </div>
                     </div>
-
                     <div class="module-card-interactive p-6 rounded-lg border border-gray-700 flex items-start space-x-4">
                         <span class="text-2xl text-yellow-400 mt-1">🎵</span>
                         <div>
@@ -559,7 +509,6 @@
                             <p class="text-gray-400 text-sm">Generación de bandas sonoras y composición asistida por modelos.</p>
                         </div>
                     </div>
-
                     <div class="module-card-interactive p-6 rounded-lg border border-gray-700 flex items-start space-x-4">
                         <span class="text-2xl text-yellow-400 mt-1">💻</span>
                         <div>
@@ -567,7 +516,6 @@
                             <p class="text-gray-400 text-sm">Desde modelos básicos hasta ingeniería de prompts avanzada (Método CROC).</p>
                         </div>
                     </div>
-
                     <div class="module-card-interactive p-6 rounded-lg border border-gray-700 flex items-start space-x-4">
                         <span class="text-2xl text-yellow-400 mt-1">🔍</span>
                         <div>
@@ -575,7 +523,6 @@
                             <p class="text-gray-400 text-sm">Inmersión práctica en las plataformas líderes del mercado.</p>
                         </div>
                     </div>
-
                     <div class="module-card-interactive p-6 rounded-lg border border-gray-700 flex items-start space-x-4">
                         <span class="text-2xl text-yellow-400 mt-1">🔑</span>
                         <div>
@@ -587,7 +534,7 @@
             </div>
         </section>
 
-        <!-- VALOR AÑADIDO (ACTUALIZACIONES CONTINUAS) --><section class="py-16 px-4">
+        <section class="py-16 px-4">
             <div class="max-w-4xl mx-auto">
                 <div class="update-box bg-blue-900/50 p-8 rounded-2xl border-4 border-yellow-400 shadow-2xl transition duration-300 hover:bg-blue-900/70 cursor-pointer text-center">
                     <p class="text-2xl font-bold text-yellow-400 mb-4">✅ ¡Valor en Constante Crecimiento!</p>
@@ -598,16 +545,17 @@
             </div>
         </section>
 
-        <!-- TESTIMONIOS (CARRUSEL DINÁMICO) --><section id="testimonios" class="py-20 px-4 bg-gray-900/50">
+        <section id="testimonios" class="py-20 px-4 bg-gray-900/50">
             <div class="max-w-7xl mx-auto text-center">
                 <h2 class="text-4xl font-extrabold mb-4 text-white">QUÉ DICEN NUESTROS CLIENTES SATISFECHOS DEL CURSO</h2>
                 <p class="text-xl text-gray-400 mb-12">Prueba social de profesionales de todo el mundo.</p>
 
                 <div id="testimonial-carousel" class="relative max-w-2xl mx-auto overflow-hidden">
                     <div id="testimonial-track" class="flex transition-transform duration-500 ease-in-out">
-                        <!-- Los testimonios se cargarán aquí dinámicamente --></div>
+                        <!-- Contenido dinámico del carrusel inyectado con JS -->
+                    </div>
 
-                    <!-- Botones de Navegación del Carrusel --><button id="prevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 hover:bg-yellow-400 text-white hover:text-gray-900 p-3 rounded-full shadow-lg transition duration-300">
+                    <button id="prevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 hover:bg-yellow-400 text-white hover:text-gray-900 p-3 rounded-full shadow-lg transition duration-300">
                         &#10094;
                     </button>
                     <button id="nextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 hover:bg-yellow-400 text-white hover:text-gray-900 p-3 rounded-full shadow-lg transition duration-300">
@@ -617,12 +565,12 @@
             </div>
         </section>
 
-        <!-- HISTORIAS DE ÉXITO DESTACADAS (INTERACTIVO) --><section id="final-testimonials" class="py-20 px-4 bg-gray-900">
+        <section id="final-testimonials" class="py-20 px-4 bg-gray-900">
             <div class="max-w-6xl mx-auto">
                 <h2 class="text-3xl font-extrabold mb-10 text-white text-center">Historias de Éxito Destacadas</h2>
                 <div class="grid md:grid-cols-2 gap-8">
 
-                    <!-- Historia de Roberto Fuentes (Emprendedor) --><div class="interactive-card">
+                    <div class="interactive-card">
                         <div class="client-info flex items-center mb-4">
                             <img src="https://placehold.co/100x100/3498db/ffffff?text=R" alt="Foto de perfil de Roberto Fuentes" class="profile-photo w-16 h-16 rounded-full object-cover mr-4">
                             <div class="client-details">
@@ -635,7 +583,7 @@
                         </p>
                     </div>
 
-                    <!-- Historia de Valeria Soto (Front-End Developer) --><div class="interactive-card">
+                    <div class="interactive-card">
                         <div class="client-info flex items-center mb-4">
                             <img src="https://placehold.co/100x100/e91e63/ffffff?text=V" alt="Foto de perfil de Valeria Soto" class="profile-photo w-16 h-16 rounded-full object-cover mr-4">
                             <div class="client-details">
@@ -652,7 +600,7 @@
             </div>
         </section>
 
-        <!-- COLFÓN FINAL PERSUASIVO INTERACTIVO --><section class="final-callout-wrapper">
+        <section class="final-callout-wrapper">
             <div class="max-w-4xl mx-auto interactive-card final-callout-interactive p-8">
                 <p>
                     Deje de ver la Inteligencia Artificial como una amenaza y empiece a verla como la mejor inversión de su vida. El futuro del trabajo y de los negocios no espera por nadie. Mientras otros se paralizan por la incertidumbre, usted puede asegurar su relevancia dominando la tecnología que impulsará la próxima década. Este curso no es un gasto, es el seguro de vida profesional más potente del mercado: le da la claridad necesaria para emprender como Roberto, o el poder de multiplicar su productividad como Valeria. En un mundo donde la IA decide quién avanza y quién se queda atrás, la única inversión que garantiza el éxito a largo plazo es el conocimiento. No espere a que la ola lo arrastre. Inscríbase en KVN Courses hoy y conviértase en quien dirige la ola.
@@ -660,17 +608,13 @@
             </div>
         </section>
 
-        <!-- SECCIÓN DE CONTACTO --><section id="contacto">
-            <!-- TÍTULO ENVUELTO EN LA TARJETA INTERACTIVA -->
-            <div class="max-w-4xl mx-auto mb-12"> <!-- Contenedor para centrar y dar margen inferior -->
-                <div class="interactive-card text-center"> <!-- Tarjeta con efecto hover -->
+        <section id="contacto">
+            <div class="max-w-4xl mx-auto mb-12"> 
+                <div class="interactive-card text-center"> 
                     <h2>PARA CREACIÓN DE CURSOS, PÁGINAS, ARCHIVOS EDITABLES, EXTENSIONES, JUEGOS Y APLICACIONES, ESCRÍBENOS</h2>
                 </div>
             </div>
 
-            <!-- Se eliminó el div .contacto-info que contenía el email -->
-            
-            <!-- NUEVO FORMULARIO DE CONTACTO -->
             <form class="contact-form" action="https://getform.io/f/adrdwvpa" method="POST">
                 <div class="form-group">
                     <label for="nombre" class="form-label">Nombre Completo</label>
@@ -692,60 +636,43 @@
                     <button type="submit" class="form-button">Enviar Mensaje</button>
                 </div>
             </form>
-            <!-- FIN DEL NUEVO FORMULARIO -->
-            
         </section>
 
-
-        <!-- NUEVA SECCIÓN FINAL CTA --><section class="final-cta-section">
+        <section class="final-cta-section">
             <p>
                 No te lo pienses y adquiere tu curso ya, que el futuro no te domine, actualiza tus conocimientos a los avances tecnológicos de la IA.
             </p>
-            <!-- ENLACE FINAL CTA ACTUALIZADO -->
-            <a href="https://shopworldkvn.myshopify.com/collections/all" class="cta-button bg-yellow-400 text-gray-900 font-bold py-4 px-10 rounded-xl shadow-lg hover:bg-yellow-300 transition duration-300 transform hover:scale-105 inline-block text-xl">
-                ¡Quiero Mi Acceso Ahora! 🚀
-            </a>
+            <!-- Contenedor de Botones Inferior -->
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="https://go.hotmart.com/E102814401R?dp=1" target="_blank" class="bg-yellow-400 text-gray-900 font-bold py-4 px-10 rounded-xl shadow-lg hover:bg-yellow-300 transition duration-300 transform hover:scale-105 inline-block text-xl w-full sm:w-auto">
+                    ¡Conseguir Ahora! 🚀
+                </a>
+                <a href="https://wa.me/593995496359?text=Hola,%20quiero%20comprar%20el%20curso%20de%20IA" target="_blank" class="bg-[#25d366] text-white font-bold py-4 px-10 rounded-xl shadow-lg hover:bg-[#1ebe57] transition duration-300 transform hover:scale-105 inline-flex items-center justify-center gap-2 text-xl w-full sm:w-auto">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M19.03 4.97C17.15 3.09 14.68 2 12 2C6.48 2 2 6.48 2 12c0 1.77.46 3.44 1.28 4.93L2 22l5.07-1.28C8.56 21.54 10.23 22 12 22c5.52 0 10-4.48 10-10c0-2.68-1.09-5.15-2.97-6.03zM12 20c-1.5 0-2.91-.41-4.14-1.13l-.29-.17l-3.08.78l.79-3.02l-.19-.3C4.41 14.91 4 13.5 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8zm5.17-5.57c-.18-.09-.96-.47-1.11-.53c-.15-.05-.26-.08-.37.08c-.11.16-.42.53-.51.63c-.1.11-.19.12-.37.04c-.18-.09-.76-.28-1.45-.89c-.54-.47-.9-.95-1-1.1c-.1-.16-.01-.24.07-.32c.08-.08.18-.21.27-.31c.09-.1.12-.16.18-.27c.06-.11.03-.2-.01-.28c-.04-.08-.37-.89-.51-1.22c-.14-.33-.28-.28-.39-.29c-.1-.01-.21-.01-.32-.01c-.11 0-.29.04-.44.2c-.16.16-.6.58-.6 1.41c0 .83.61 1.63.7 1.75c.09.11 1.2 1.83 2.91 2.56c.41.17.73.28.98.36c.4.12.76.1.1.06c.38-.04 1.14-.46 1.3-.91c.16-.44.16-.81.11-.89c-.05-.08-.16-.12-.34-.21z"/></svg>
+                    Compra por WhatsApp
+                </a>
+            </div>
         </section>
 
     </main>
 
-    <!-- BANNER FIJO INFERIOR (STICKY) --><div class="sticky-banner-cta flex items-center justify-center px-4 py-3"> <!-- ¡justify-content: center ahora! --><p class="text-white text-lg">¿Listo para dominar la IA?</p> <!-- El texto es visible en todas las pantallas --><!-- ENLACE BANNER FIJO ACTUALIZADO --><a href="https://shopworldkvn.myshopify.com/collections/all" class="cta-button ml-4"> <!-- Margen a la izquierda para separar del texto -->Inscríbete Ya
+    <div class="sticky-banner-cta flex items-center justify-center px-4 py-3"> 
+        <p class="text-white text-lg">¿Listo para dominar la IA?</p> 
+        <a href="https://go.hotmart.com/E102814401R?dp=1" target="_blank" class="cta-button ml-4"> Conseguir Ya
         </a>
     </div>
 
-
-    <!-- BOTÓN FLOTANTE DE WHATSAPP --><a
-      href="https://wa.me/593995496359"
-      class="boton-flotante-whatsapp"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Contactar por WhatsApp"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        width="36"
-        height="36"
-      >
-        <path
-          fill="currentColor"
-          d="M19.03 4.97C17.15 3.09 14.68 2 12 2C6.48 2 2 6.48 2 12c0 1.77.46 3.44 1.28 4.93L2 22l5.07-1.28C8.56 21.54 10.23 22 12 22c5.52 0 10-4.48 10-10c0-2.68-1.09-5.15-2.97-6.03zM12 20c-1.5 0-2.91-.41-4.14-1.13l-.29-.17l-3.08.78l.79-3.02l-.19-.3C4.41 14.91 4 13.5 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8zm5.17-5.57c-.18-.09-.96-.47-1.11-.53c-.15-.05-.26-.08-.37.08c-.11.16-.42.53-.51.63c-.1.11-.19.12-.37.04c-.18-.09-.76-.28-1.45-.89c-.54-.47-.9-.95-1-1.1c-.1-.16-.01-.24.07-.32c.08-.08.18-.21.27-.31c.09-.1.12-.16.18-.27c.06-.11.03-.2-.01-.28c-.04-.08-.37-.89-.51-1.22c-.14-.33-.28-.28-.39-.29c-.1-.01-.21-.01-.32-.01c-.11 0-.29.04-.44.2c-.16.16-.6.58-.6 1.41c0 .83.61 1.63.7 1.75c.09.11 1.2 1.83 2.91 2.56c.41.17.73.28.98.36c.4.12.76.1.1.06c.38-.04 1.14-.46 1.3-.91c.16-.44.16-.81.11-.89c-.05-.08-.16-.12-.34-.21z"
-        />
-      </svg>
-    </a>
-
-    <!-- FOOTER CON DERECHOS DE AUTOR --><footer>
+    <footer>
         <p>© 2025 KVN Courses. Todos los derechos reservados.</p>
     </footer>
-
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
 
             // --- 1. Lógica del Contador de Tiempo (Escasez) ---
             function startCountdown() {
-                // Inicializamos el tiempo en segundos (2 horas * 3600)
-                let timeRemaining = (2 * 3600);
+                // Inicializamos el tiempo en segundos (4 horas * 3600 + 59 minutos * 60 + 59 segundos)
+                let timeRemaining = (4 * 3600) + (59 * 60) + 59;
                 const timerElement = document.getElementById('timer');
                 if (!timerElement) return;
 
@@ -753,7 +680,7 @@
                     // Si el tiempo llega a cero, detenemos el contador
                     if (timeRemaining < 0) {
                         clearInterval(updateTimer);
-                        timerElement.innerHTML = "¡OFERTA FINALIZADA!";
+                        timerElement.textContent = "¡OFERTA FINALIZADA!";
                         return;
                     }
 
@@ -766,7 +693,7 @@
                     const formatTime = (time) => String(time).padStart(2, '0');
 
                     // Mostrar el resultado
-                    timerElement.innerHTML = `${formatTime(hours)}h ${formatTime(minutes)}m ${formatTime(seconds)}s`;
+                    timerElement.textContent = `${formatTime(hours)}h ${formatTime(minutes)}m ${formatTime(seconds)}s`;
 
                     // Decrementar el tiempo
                     timeRemaining--;
@@ -795,11 +722,9 @@
                  console.error("No se encontró el elemento Hero o el Sticky Banner CTA.");
             }
 
-
-
             // --- 3. Lógica del Carrusel de Testimonios ---
             const testimonials = [
-                 // Testimonios originales reducidos a 10 + 9 nuevos = 19 Total
+                // Testimonios originales reducidos a 10 + 9 nuevos = 19 Total
                 { name: "John Smith", score: "5.0", text: "Best investment this year. Intuitive platform, immediate results. Top-tier service!", imgInitial: "J", imgBg: "1cc88a", textColor: "ffffff"},
                 { name: "Marco Rossi", score: "4.8", text: "Fast delivery, product exactly as described. Very satisfied. Great job!", imgInitial: "M", imgBg: "36b9cc", textColor: "ffffff"},
                 { name: "Klaus Müller", score: "5.0", text: "Works perfectly. Saved me a lot of time. Worth every penny. Highly recommended!", imgInitial: "K", imgBg: "f6c23e", textColor: "000000"},
@@ -819,13 +744,12 @@
                 { name: "Felipe Díaz", score: "4.5", text: "Muy buen rendimiento. Tuve una duda y el soporte la resolvió en 5 minutos.", imgInitial: "F", imgBg: "6495ed", textColor: "ffffff"},
                 // Alemán (2)
                 { name: "Heidi Vogel", score: "5.0", text: "Fantastisches Produkt und super einfach zu bedienen! Empfehle es jedem weiter.", imgInitial: "H", imgBg: "90ee90", textColor: "000000"},
-                { name: "Lukas Schmidt", score: "4.8", text: "Sehr nützlich für mein Geschäft. Hat mir geholfen, effizienter zu werden. Empfehlenswert.", imgInitial: "L", imgBg: "deb887", textColor: "000000"},
+                { name: "Lukas Schmidt", score: "4.8", text: "Sehr nützlich für mein Geschäft. Hat mir gehelfen, effizienter zu werden. Empfehlenswert.", imgInitial: "L", imgBg: "deb887", textColor: "000000"},
                 // Francés (1)
                 { name: "Amelie Dubois", score: "4.7", text: "Très intuitif et puissant. Le service client est également très réactif et utile.", imgInitial: "A", imgBg: "b0c4de", textColor: "000000"},
                 // Italiano (1)
                 { name: "Giulia Ricci", score: "4.9", text: "Ha trasformato il mio modo di lavorare. Facile da integrare e risultati immediati. Lo adoro!", imgInitial: "G", imgBg: "ffdab9", textColor: "000000"},
             ];
-
 
             const track = document.getElementById('testimonial-track');
             const carouselContainer = document.getElementById('testimonial-carousel');
@@ -865,7 +789,6 @@
                 updateCarouselVisuals();
             }
 
-
             function updateCarouselVisuals() {
                 // Verifica si hay diapositivas antes de intentar acceder a sus propiedades
                 if (!carouselContainer || !slides || slides.length === 0) return;
@@ -886,14 +809,14 @@
 
                 // Eventos de botones
                 nextBtn.addEventListener('click', () => {
-                     // Verifica si hay diapositivas antes de intentar acceder a sus propiedades
+                      // Verifica si hay diapositivas antes de intentar acceder a sus propiedades
                     if (!slides || slides.length === 0) return;
                     currentSlide = (currentSlide + 1) % slides.length;
                     updateCarouselVisuals();
                 });
 
                 prevBtn.addEventListener('click', () => {
-                     // Verifica si hay diapositivas antes de intentar acceder a sus propiedades
+                      // Verifica si hay diapositivas antes de intentar acceder a sus propiedades
                     if (!slides || slides.length === 0) return;
                     currentSlide = (currentSlide - 1 + slides.length) % slides.length;
                     updateCarouselVisuals();
@@ -911,7 +834,3 @@
     </script>
 </body>
 </html>
-
-</body>
-</html>
-
